@@ -1,21 +1,18 @@
 # Red Zone Watch
 
-Live tracker: shows which of your NFL players are in the red zone right now, with photo, jersey number and position. Data comes from ESPN's public scoreboard (checked every 10 seconds during games).
+Live tracker: shows which of your NFL players are in the red zone right now, with photo, jersey number and position.
+Live data: ESPN, through your free Cloudflare relay (redzone-relay.matthiastice.workers.dev).
 
-## Put it online free with GitHub Pages (works on iPhone, Mac, Windows)
-1. Sign in at github.com → **New repository** → name it `redzone-watch` → Public → Create.
-2. Click **uploading an existing file**, drag in every file from this folder, click **Commit changes**.
-3. Go to **Settings → Pages** → Source: **Deploy from a branch** → Branch: `main`, folder `/ (root)` → Save.
-4. After about 1 minute your app is at `https://YOUR-USERNAME.github.io/redzone-watch/`
+App link: https://mtice16.github.io/redzone-watch/
 
-## Install it like an app
-- **iPhone/iPad:** open the link in Safari → Share → **Add to Home Screen**. Open it from the Home Screen icon, then tap **Alerts** to allow notifications.
-- **Windows (Edge or Chrome):** open the link → address bar install icon (or ⋯ → Apps → Install).
-- **Mac:** Safari → File → **Add to Dock**, or install from Chrome.
+## Versions
+- The app file is named index-X.Y.html. The version shows as a yellow badge at the top and at the bottom of the page.
+- X changes when an update is NOT backwards compatible (saved players or settings reset).
+- Y goes up (0 to 999) for updates that are backwards compatible.
+- index.html is the start page: it always opens the newest version.
 
-## Use
-- Type a player's name, pick him from the list. Your list stays saved in that browser.
-- **Sound** beeps, **Alerts** sends a notification, **Keep screen on** stops the screen sleeping while it's on a second monitor.
-- **Sample** shows fake data so you can see the layout when no games are on.
-
-Note: alerts arrive while the app is open (foreground or recently backgrounded). iPhone pauses web apps that stay in the background for long.
+## Updating (from iPhone)
+1. Save the update zip to Files, tap it to unzip.
+2. Open https://github.com/MTice16/redzone-watch/upload/main
+3. choose your files, select every file in the update folder, Open, Commit changes.
+4. Wait for the green check, then open the app link.

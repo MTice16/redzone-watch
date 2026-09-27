@@ -8,14 +8,17 @@
 <meta name="apple-mobile-web-app-title" content="Red Zone">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-180.png">
-<style>body{margin:0;background:#0b130e;color:#9fb2a4;font:14px system-ui,sans-serif;display:grid;place-items:center;height:100vh}</style>
+<style>body{margin:0;background:#0b130e;color:#9fb2a4;font:14px ui-monospace,Consolas,monospace;display:grid;place-items:center;height:100vh;text-align:center}</style>
 </head><body>
-<p id="m">Opening latest version…</p>
+<p id="m">Red Zone Watch start page (launcher 1.3)<br>Opening newest version…</p>
 <script>
-// Launcher: never needs to change. It reads version.json (fresh every time) and opens index-X.Y.html.
-const FALLBACK = "1.1";
+// Start page. LATEST is written into this file every update; version.json can only move it forward.
+const LATEST = "1.3";
+const num = v => { const [a,b] = String(v).split(".").map(Number); return (a||0)*1000 + (b||0); };
 fetch("version.json?t=" + Date.now(), {cache: "no-store"})
-  .then(r => r.json()).then(j => j.version).catch(() => FALLBACK)
-  .then(v => location.replace("index-" + v + ".html"));
+  .then(r => r.json()).then(j => j.version).catch(() => LATEST)
+  .then(v => { const pick = num(v) > num(LATEST) ? v : LATEST;
+    document.getElementById("m").innerHTML += "<br>→ v" + pick;
+    location.replace("index-" + pick + ".html?t=" + Date.now()); });
 </script>
 </body></html>
