@@ -1,6 +1,6 @@
 // Lets the app install to the Home Screen / Start menu and show alerts. Live data is never cached.
-const SHELL = "rzw-v1";
-self.addEventListener("install", e => { e.waitUntil(caches.open(SHELL).then(c => c.addAll(["./", "index.html", "manifest.webmanifest", "icon-192.png"]))); self.skipWaiting(); });
+const SHELL = "rzw-v2";
+self.addEventListener("install", e => { e.waitUntil(caches.open(SHELL).then(c => c.addAll(["manifest.webmanifest", "icon-192.png"]))); self.skipWaiting(); });
 self.addEventListener("activate", e => e.waitUntil(self.clients.claim()));
 self.addEventListener("fetch", e => {
   const u = new URL(e.request.url);
