@@ -10,10 +10,10 @@
 <link rel="apple-touch-icon" href="icon-180.png">
 <style>body{margin:0;background:#0b130e;color:#9fb2a4;font:14px ui-monospace,Consolas,monospace;display:grid;place-items:center;height:100vh;text-align:center}</style>
 </head><body>
-<p id="m">Red Zone Watch start page (launcher 1.9)<br>Opening newest version…</p>
+<p id="m">Red Zone Watch start page (launcher 1.10)<br>Opening newest version…</p>
 <script>
 // Start page. LATEST is written into this file every update; version.json can only move it forward.
-const LATEST = "1.9";
+const LATEST = "1.10";
 const num = v => { const [a,b] = String(v).split(".").map(Number); return (a||0)*1000 + (b||0); };
 fetch("version.json?t=" + Date.now(), {cache: "no-store"})
   .then(r => r.json()).then(j => j.version).catch(() => LATEST)
